@@ -1,0 +1,1 @@
+time ./16sm100ms.sh > abc.txt 2> time.txt

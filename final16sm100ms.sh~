@@ -2,5 +2,5 @@
 
 for i in {1..64}
 do
-    cuda/16sm100ms > trash.txt
+    time ./16sm100ms.sh 2> time.txt
 done

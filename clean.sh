@@ -1,6 +1,6 @@
-rm -r sleep-*
-rm *.result
-rm *.kml
-rm *.log
-rm *~
-rm *.xml
+mv gpu-* logs/
+mv *.result logs/
+mv *.kml logs/
+mv *.log logs/
+mv *~ logs/
+mv *.xml logs/

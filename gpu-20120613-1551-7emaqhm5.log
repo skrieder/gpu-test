@@ -1,0 +1,665 @@
+2012-06-13 15:51:52,824-0500 DEBUG Loader arguments: [-tc.file, tc.data, -sites.file, sites/1-throttle-sites.xml, gpu.swift, -nkernels=1, -kernel_time=100]
+2012-06-13 15:51:52,824-0500 DEBUG Loader Max heap: 252248064
+2012-06-13 15:51:52,825-0500 DEBUG textfiles BEGIN SWIFTSCRIPT:
+type messagefile; 
+type countfile; 
+
+app (countfile t) countwords (int nk, int time) {   
+     cka "-nkernels="nk "-kernel_time="time stdout=@filename(t);
+}
+
+int nKernels = @toint(@arg("nkernels","1"));
+int sleepTime = @toint(@arg("kernel_time","1"));
+
+string inputNames = "scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh";
+
+messagefile inputfiles[] <fixed_array_mapper;files=inputNames>;
+
+foreach f,i in inputfiles {
+  countfile c <single_file_mapper; file=@strcat(i, ".result")>;
+  c = countwords(nKernels, sleepTime);
+}
+
+
+2012-06-13 15:51:52,825-0500 DEBUG textfiles END SWIFTSCRIPT:
+2012-06-13 15:51:52,826-0500 DEBUG Loader kmlversion is >239b8550-a5ff-44be-a124-5e7ecd70737d<
+2012-06-13 15:51:52,826-0500 DEBUG Loader build version is >239b8550-a5ff-44be-a124-5e7ecd70737d<
+2012-06-13 15:51:52,826-0500 DEBUG Loader Recompilation suppressed.
+2012-06-13 15:51:52,977-0500 DEBUG Loader setting: sites.file to: sites/1-throttle-sites.xml
+2012-06-13 15:51:52,977-0500 DEBUG Loader setting: tc.file to: tc.data
+2012-06-13 15:51:52,978-0500 DEBUG textfiles BEGIN SITES:
+<config>
+
+  <pool handle="localhost">
+    <filesystem provider="local" />
+    <execution provider="local" />
+    <workdirectory >/var/tmp</workdirectory>
+    <profile namespace="karajan" key="jobThrottle">0</profile>
+    <profile namespace="karajan" key="initialScore">10000</profile>
+  </pool>
+
+</config>
+
+
+2012-06-13 15:51:52,978-0500 DEBUG textfiles END SITES:
+2012-06-13 15:51:52,982-0500 INFO  VDL2ExecutionContext Stack dump:
+Level 1
+[iA = 0, iB = 0, bA = false, bB = false]
+	vdl:instanceconfig = Swift configuration []
+	vdl:operation = run
+	swift.home = /usr/local/swift/bin/..
+	PATH_SEPARATOR = /
+
+
+2012-06-13 15:51:53,632-0500 INFO  unknown Using sites file: sites/1-throttle-sites.xml
+2012-06-13 15:51:53,670-0500 INFO  unknown Using tc.data: tc.data
+2012-06-13 15:51:53,781-0500 INFO  AbstractScheduler Setting resources to: {localhost=localhost}
+2012-06-13 15:51:54,372-0500 INFO  unknown Swift 0.93 swift-r5483 cog-r3339
+
+2012-06-13 15:51:54,372-0500 INFO  unknown RUNID id=run:20120613-1551-7emaqhm5
+2012-06-13 15:51:54,423-0500 INFO  SetFieldValue Set: inputNames=scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh
+2012-06-13 15:51:54,424-0500 INFO  VDLFunction FUNCTION: arg()
+2012-06-13 15:51:54,424-0500 INFO  VDLFunction FUNCTION: arg()
+2012-06-13 15:51:54,424-0500 INFO  VDLFunction FUNCTION: toint()
+2012-06-13 15:51:54,424-0500 INFO  SetFieldValue Set: nKernels=1.0
+2012-06-13 15:51:54,425-0500 INFO  VDLFunction FUNCTION: toint()
+2012-06-13 15:51:54,425-0500 INFO  SetFieldValue Set: sleepTime=100.0
+2012-06-13 15:51:54,445-0500 INFO  RootDataNode Found data inputfiles:messagefile[] - Open.[0]
+2012-06-13 15:51:54,445-0500 INFO  RootDataNode Found data inputfiles:messagefile[] - Open.[1]
+2012-06-13 15:51:54,445-0500 INFO  RootDataNode Found data inputfiles:messagefile[] - Open.[2]
+2012-06-13 15:51:54,445-0500 INFO  RootDataNode Found data inputfiles:messagefile[] - Open.[3]
+2012-06-13 15:51:54,445-0500 INFO  RootDataNode Found data inputfiles:messagefile[] - Open.[4]
+2012-06-13 15:51:54,445-0500 INFO  RootDataNode Found data inputfiles:messagefile[] - Open.[5]
+2012-06-13 15:51:54,445-0500 INFO  RootDataNode Found data inputfiles:messagefile[] - Open.[6]
+2012-06-13 15:51:54,445-0500 INFO  RootDataNode Found data inputfiles:messagefile[] - Open.[7]
+2012-06-13 15:51:54,445-0500 INFO  RootDataNode Found data inputfiles:messagefile[] - Open.[8]
+2012-06-13 15:51:54,445-0500 INFO  RootDataNode Found data inputfiles:messagefile[] - Open.[9]
+2012-06-13 15:51:54,446-0500 INFO  RootDataNode Found data inputfiles:messagefile[] - Open.[10]
+2012-06-13 15:51:54,446-0500 INFO  RootDataNode Found data inputfiles:messagefile[] - Open.[11]
+2012-06-13 15:51:54,446-0500 INFO  RootDataNode Found data inputfiles:messagefile[] - Open.[12]
+2012-06-13 15:51:54,446-0500 INFO  RootDataNode Found data inputfiles:messagefile[] - Open.[13]
+2012-06-13 15:51:54,446-0500 INFO  RootDataNode Found data inputfiles:messagefile[] - Open.[14]
+2012-06-13 15:51:54,446-0500 INFO  RootDataNode Found data inputfiles:messagefile[] - Open.[15]
+2012-06-13 15:51:54,446-0500 INFO  RootDataNode Found data inputfiles:messagefile[] - Open.[16]
+2012-06-13 15:51:54,446-0500 INFO  RootDataNode Found data inputfiles:messagefile[] - Open.[17]
+2012-06-13 15:51:54,446-0500 INFO  RootDataNode Found data inputfiles:messagefile[] - Open.[18]
+2012-06-13 15:51:54,446-0500 INFO  RootDataNode Found data inputfiles:messagefile[] - Open.[19]
+2012-06-13 15:51:54,446-0500 INFO  RootDataNode Found data inputfiles:messagefile[] - Open.[20]
+2012-06-13 15:51:54,447-0500 INFO  RootDataNode Found data inputfiles:messagefile[] - Open.[21]
+2012-06-13 15:51:54,447-0500 INFO  RootDataNode Found data inputfiles:messagefile[] - Open.[22]
+2012-06-13 15:51:54,447-0500 INFO  RootDataNode Found data inputfiles:messagefile[] - Open.[23]
+2012-06-13 15:51:54,447-0500 INFO  RootDataNode Found data inputfiles:messagefile[] - Open.[24]
+2012-06-13 15:51:54,447-0500 INFO  RootDataNode Found data inputfiles:messagefile[] - Open.[25]
+2012-06-13 15:51:54,447-0500 INFO  RootDataNode Found data inputfiles:messagefile[] - Open.[26]
+2012-06-13 15:51:54,447-0500 INFO  RootDataNode Found data inputfiles:messagefile[] - Open.[27]
+2012-06-13 15:51:54,447-0500 INFO  RootDataNode Found data inputfiles:messagefile[] - Open.[28]
+2012-06-13 15:51:54,447-0500 INFO  RootDataNode Found data inputfiles:messagefile[] - Open.[29]
+2012-06-13 15:51:54,447-0500 INFO  RootDataNode Found data inputfiles:messagefile[] - Open.[30]
+2012-06-13 15:51:54,447-0500 INFO  RootDataNode Found data inputfiles:messagefile[] - Open.[31]
+2012-06-13 15:51:54,448-0500 INFO  RootDataNode Found data inputfiles:messagefile[] - Open.[32]
+2012-06-13 15:51:54,448-0500 INFO  RootDataNode Found data inputfiles:messagefile[] - Open.[33]
+2012-06-13 15:51:54,448-0500 INFO  RootDataNode Found data inputfiles:messagefile[] - Open.[34]
+2012-06-13 15:51:54,448-0500 INFO  RootDataNode Found data inputfiles:messagefile[] - Open.[35]
+2012-06-13 15:51:54,448-0500 INFO  RootDataNode Found data inputfiles:messagefile[] - Open.[36]
+2012-06-13 15:51:54,448-0500 INFO  RootDataNode Found data inputfiles:messagefile[] - Open.[37]
+2012-06-13 15:51:54,448-0500 INFO  RootDataNode Found data inputfiles:messagefile[] - Open.[38]
+2012-06-13 15:51:54,448-0500 INFO  RootDataNode Found data inputfiles:messagefile[] - Open.[39]
+2012-06-13 15:51:54,448-0500 INFO  RootDataNode Found data inputfiles:messagefile[] - Open.[40]
+2012-06-13 15:51:54,448-0500 INFO  RootDataNode Found data inputfiles:messagefile[] - Open.[41]
+2012-06-13 15:51:54,448-0500 INFO  RootDataNode Found data inputfiles:messagefile[] - Open.[42]
+2012-06-13 15:51:54,449-0500 INFO  RootDataNode Found data inputfiles:messagefile[] - Open.[43]
+2012-06-13 15:51:54,449-0500 INFO  RootDataNode Found data inputfiles:messagefile[] - Open.[44]
+2012-06-13 15:51:54,449-0500 INFO  RootDataNode Found data inputfiles:messagefile[] - Open.[45]
+2012-06-13 15:51:54,449-0500 INFO  RootDataNode Found data inputfiles:messagefile[] - Open.[46]
+2012-06-13 15:51:54,449-0500 INFO  RootDataNode Found data inputfiles:messagefile[] - Open.[47]
+2012-06-13 15:51:54,449-0500 INFO  RootDataNode Found data inputfiles:messagefile[] - Open.[48]
+2012-06-13 15:51:54,449-0500 INFO  RootDataNode Found data inputfiles:messagefile[] - Open.[49]
+2012-06-13 15:51:54,449-0500 INFO  RootDataNode Found data inputfiles:messagefile[] - Open.[50]
+2012-06-13 15:51:54,449-0500 INFO  RootDataNode Found data inputfiles:messagefile[] - Open.[51]
+2012-06-13 15:51:54,449-0500 INFO  RootDataNode Found data inputfiles:messagefile[] - Open.[52]
+2012-06-13 15:51:54,449-0500 INFO  RootDataNode Found data inputfiles:messagefile[] - Open.[53]
+2012-06-13 15:51:54,450-0500 INFO  RootDataNode Found data inputfiles:messagefile[] - Open.[54]
+2012-06-13 15:51:54,450-0500 INFO  RootDataNode Found data inputfiles:messagefile[] - Open.[55]
+2012-06-13 15:51:54,450-0500 INFO  RootDataNode Found data inputfiles:messagefile[] - Open.[56]
+2012-06-13 15:51:54,450-0500 INFO  RootDataNode Found data inputfiles:messagefile[] - Open.[57]
+2012-06-13 15:51:54,450-0500 INFO  RootDataNode Found data inputfiles:messagefile[] - Open.[58]
+2012-06-13 15:51:54,450-0500 INFO  RootDataNode Found data inputfiles:messagefile[] - Open.[59]
+2012-06-13 15:51:54,450-0500 INFO  RootDataNode Found data inputfiles:messagefile[] - Open.[60]
+2012-06-13 15:51:54,450-0500 INFO  RootDataNode Found data inputfiles:messagefile[] - Open.[61]
+2012-06-13 15:51:54,450-0500 INFO  RootDataNode Found data inputfiles:messagefile[] - Open.[62]
+2012-06-13 15:51:54,450-0500 INFO  RootDataNode Found data inputfiles:messagefile[] - Open.[63]
+2012-06-13 15:51:54,455-0500 DEBUG vdl:mains FOREACH_IT_START line=15 thread=0-3-3
+2012-06-13 15:51:54,455-0500 DEBUG vdl:mains SCOPE thread=0-3-3
+2012-06-13 15:51:54,456-0500 DEBUG vdl:mains FOREACH_IT_START line=15 thread=0-3-1
+2012-06-13 15:51:54,456-0500 DEBUG vdl:mains FOREACH_IT_START line=15 thread=0-3-2
+2012-06-13 15:51:54,456-0500 DEBUG vdl:mains FOREACH_IT_START line=15 thread=0-3-4
+2012-06-13 15:51:54,457-0500 DEBUG vdl:mains SCOPE thread=0-3-2
+2012-06-13 15:51:54,457-0500 DEBUG vdl:mains SCOPE thread=0-3-4
+2012-06-13 15:51:54,458-0500 DEBUG vdl:mains FOREACH_IT_START line=15 thread=0-3-5
+2012-06-13 15:51:54,458-0500 DEBUG vdl:mains FOREACH_IT_START line=15 thread=0-3-11
+2012-06-13 15:51:54,456-0500 DEBUG vdl:mains FOREACH_IT_START line=15 thread=0-3-0
+2012-06-13 15:51:54,459-0500 DEBUG vdl:mains FOREACH_IT_START line=15 thread=0-3-13
+2012-06-13 15:51:54,459-0500 DEBUG vdl:mains FOREACH_IT_START line=15 thread=0-3-12
+2012-06-13 15:51:54,459-0500 DEBUG vdl:mains FOREACH_IT_START line=15 thread=0-3-14
+2012-06-13 15:51:54,460-0500 DEBUG vdl:mains SCOPE thread=0-3-11
+2012-06-13 15:51:54,459-0500 DEBUG vdl:mains FOREACH_IT_START line=15 thread=0-3-9
+2012-06-13 15:51:54,458-0500 DEBUG vdl:mains FOREACH_IT_START line=15 thread=0-3-10
+2012-06-13 15:51:54,458-0500 DEBUG vdl:mains FOREACH_IT_START line=15 thread=0-3-6
+2012-06-13 15:51:54,458-0500 DEBUG vdl:mains FOREACH_IT_START line=15 thread=0-3-8
+2012-06-13 15:51:54,457-0500 DEBUG vdl:mains SCOPE thread=0-3-1
+2012-06-13 15:51:54,461-0500 DEBUG vdl:mains SCOPE thread=0-3-12
+2012-06-13 15:51:54,461-0500 DEBUG vdl:mains SCOPE thread=0-3-13
+2012-06-13 15:51:54,462-0500 DEBUG vdl:mains SCOPE thread=0-3-14
+2012-06-13 15:51:54,463-0500 DEBUG vdl:mains SCOPE thread=0-3-10
+2012-06-13 15:51:54,463-0500 DEBUG vdl:mains SCOPE thread=0-3-9
+2012-06-13 15:51:54,463-0500 DEBUG vdl:mains SCOPE thread=0-3-6
+2012-06-13 15:51:54,461-0500 DEBUG vdl:mains FOREACH_IT_START line=15 thread=0-3-7
+2012-06-13 15:51:54,460-0500 DEBUG vdl:mains SCOPE thread=0-3-0
+2012-06-13 15:51:54,459-0500 DEBUG vdl:mains SCOPE thread=0-3-5
+2012-06-13 15:51:54,465-0500 DEBUG vdl:mains FOREACH_IT_START line=15 thread=0-3-21
+2012-06-13 15:51:54,465-0500 DEBUG vdl:mains FOREACH_IT_START line=15 thread=0-3-20
+2012-06-13 15:51:54,465-0500 DEBUG vdl:mains FOREACH_IT_START line=15 thread=0-3-15
+2012-06-13 15:51:54,465-0500 DEBUG vdl:mains FOREACH_IT_START line=15 thread=0-3-18
+2012-06-13 15:51:54,466-0500 DEBUG vdl:mains FOREACH_IT_START line=15 thread=0-3-22
+2012-06-13 15:51:54,466-0500 DEBUG vdl:mains FOREACH_IT_START line=15 thread=0-3-23
+2012-06-13 15:51:54,466-0500 DEBUG vdl:mains FOREACH_IT_START line=15 thread=0-3-17
+2012-06-13 15:51:54,465-0500 DEBUG vdl:mains FOREACH_IT_START line=15 thread=0-3-16
+2012-06-13 15:51:54,468-0500 DEBUG vdl:mains FOREACH_IT_START line=15 thread=0-3-19
+2012-06-13 15:51:54,468-0500 DEBUG vdl:mains FOREACH_IT_START line=15 thread=0-3-28
+2012-06-13 15:51:54,467-0500 DEBUG vdl:mains FOREACH_IT_START line=15 thread=0-3-24
+2012-06-13 15:51:54,469-0500 DEBUG vdl:mains FOREACH_IT_START line=15 thread=0-3-31
+2012-06-13 15:51:54,467-0500 DEBUG vdl:mains FOREACH_IT_START line=15 thread=0-3-30
+2012-06-13 15:51:54,469-0500 DEBUG vdl:mains FOREACH_IT_START line=15 thread=0-3-35
+2012-06-13 15:51:54,467-0500 DEBUG vdl:mains FOREACH_IT_START line=15 thread=0-3-32
+2012-06-13 15:51:54,467-0500 DEBUG vdl:mains FOREACH_IT_START line=15 thread=0-3-29
+2012-06-13 15:51:54,466-0500 DEBUG vdl:mains SCOPE thread=0-3-8
+2012-06-13 15:51:54,470-0500 DEBUG vdl:mains SCOPE thread=0-3-21
+2012-06-13 15:51:54,466-0500 DEBUG vdl:mains FOREACH_IT_START line=15 thread=0-3-25
+2012-06-13 15:51:54,466-0500 DEBUG vdl:mains FOREACH_IT_START line=15 thread=0-3-26
+2012-06-13 15:51:54,471-0500 DEBUG vdl:mains SCOPE thread=0-3-22
+2012-06-13 15:51:54,471-0500 DEBUG vdl:mains SCOPE thread=0-3-18
+2012-06-13 15:51:54,471-0500 DEBUG vdl:mains SCOPE thread=0-3-15
+2012-06-13 15:51:54,470-0500 DEBUG vdl:mains SCOPE thread=0-3-20
+2012-06-13 15:51:54,470-0500 DEBUG vdl:mains FOREACH_IT_START line=15 thread=0-3-39
+2012-06-13 15:51:54,472-0500 DEBUG vdl:mains FOREACH_IT_START line=15 thread=0-3-43
+2012-06-13 15:51:54,470-0500 DEBUG vdl:mains FOREACH_IT_START line=15 thread=0-3-37
+2012-06-13 15:51:54,469-0500 DEBUG vdl:mains SCOPE thread=0-3-7
+2012-06-13 15:51:54,469-0500 DEBUG vdl:mains FOREACH_IT_START line=15 thread=0-3-36
+2012-06-13 15:51:54,469-0500 DEBUG vdl:mains FOREACH_IT_START line=15 thread=0-3-27
+2012-06-13 15:51:54,468-0500 DEBUG vdl:mains FOREACH_IT_START line=15 thread=0-3-33
+2012-06-13 15:51:54,473-0500 DEBUG vdl:mains FOREACH_IT_START line=15 thread=0-3-45
+2012-06-13 15:51:54,473-0500 DEBUG vdl:mains FOREACH_IT_START line=15 thread=0-3-42
+2012-06-13 15:51:54,472-0500 DEBUG vdl:mains FOREACH_IT_START line=15 thread=0-3-44
+2012-06-13 15:51:54,472-0500 DEBUG vdl:mains SCOPE thread=0-3-23
+2012-06-13 15:51:54,472-0500 DEBUG vdl:mains FOREACH_IT_START line=15 thread=0-3-34
+2012-06-13 15:51:54,472-0500 DEBUG vdl:mains FOREACH_IT_START line=15 thread=0-3-38
+2012-06-13 15:51:54,472-0500 DEBUG vdl:mains FOREACH_IT_START line=15 thread=0-3-40
+2012-06-13 15:51:54,475-0500 DEBUG vdl:mains SCOPE thread=0-3-31
+2012-06-13 15:51:54,471-0500 DEBUG vdl:mains FOREACH_IT_START line=15 thread=0-3-41
+2012-06-13 15:51:54,475-0500 DEBUG vdl:mains FOREACH_IT_START line=15 thread=0-3-47
+2012-06-13 15:51:54,475-0500 DEBUG vdl:mains SCOPE thread=0-3-24
+2012-06-13 15:51:54,474-0500 DEBUG vdl:mains SCOPE thread=0-3-28
+2012-06-13 15:51:54,474-0500 DEBUG vdl:mains SCOPE thread=0-3-19
+2012-06-13 15:51:54,474-0500 DEBUG vdl:mains SCOPE thread=0-3-16
+2012-06-13 15:51:54,474-0500 DEBUG vdl:mains SCOPE thread=0-3-17
+2012-06-13 15:51:54,476-0500 DEBUG vdl:mains SCOPE thread=0-3-29
+2012-06-13 15:51:54,477-0500 DEBUG vdl:mains SCOPE thread=0-3-25
+2012-06-13 15:51:54,477-0500 DEBUG vdl:mains SCOPE thread=0-3-43
+2012-06-13 15:51:54,474-0500 DEBUG vdl:mains FOREACH_IT_START line=15 thread=0-3-48
+2012-06-13 15:51:54,474-0500 DEBUG vdl:mains FOREACH_IT_START line=15 thread=0-3-46
+2012-06-13 15:51:54,478-0500 DEBUG vdl:mains FOREACH_IT_START line=15 thread=0-3-54
+2012-06-13 15:51:54,478-0500 DEBUG vdl:mains FOREACH_IT_START line=15 thread=0-3-51
+2012-06-13 15:51:54,478-0500 DEBUG vdl:mains FOREACH_IT_START line=15 thread=0-3-52
+2012-06-13 15:51:54,478-0500 DEBUG vdl:mains FOREACH_IT_START line=15 thread=0-3-55
+2012-06-13 15:51:54,478-0500 DEBUG vdl:mains SCOPE thread=0-3-36
+2012-06-13 15:51:54,478-0500 DEBUG vdl:mains SCOPE thread=0-3-39
+2012-06-13 15:51:54,477-0500 DEBUG vdl:mains SCOPE thread=0-3-26
+2012-06-13 15:51:54,476-0500 DEBUG vdl:mains FOREACH_IT_START line=15 thread=0-3-49
+2012-06-13 15:51:54,476-0500 DEBUG vdl:mains SCOPE thread=0-3-32
+2012-06-13 15:51:54,475-0500 DEBUG vdl:mains SCOPE thread=0-3-35
+2012-06-13 15:51:54,475-0500 DEBUG vdl:mains SCOPE thread=0-3-30
+2012-06-13 15:51:54,480-0500 DEBUG vdl:mains FOREACH_IT_START line=15 thread=0-3-60
+2012-06-13 15:51:54,479-0500 DEBUG vdl:mains FOREACH_IT_START line=15 thread=0-3-59
+2012-06-13 15:51:54,479-0500 DEBUG vdl:mains FOREACH_IT_START line=15 thread=0-3-58
+2012-06-13 15:51:54,479-0500 DEBUG vdl:mains FOREACH_IT_START line=15 thread=0-3-56
+2012-06-13 15:51:54,479-0500 DEBUG vdl:mains SCOPE thread=0-3-33
+2012-06-13 15:51:54,478-0500 DEBUG vdl:mains SCOPE thread=0-3-27
+2012-06-13 15:51:54,478-0500 DEBUG vdl:mains FOREACH_IT_START line=15 thread=0-3-57
+2012-06-13 15:51:54,478-0500 DEBUG vdl:mains FOREACH_IT_START line=15 thread=0-3-53
+2012-06-13 15:51:54,478-0500 DEBUG vdl:mains SCOPE thread=0-3-37
+2012-06-13 15:51:54,478-0500 DEBUG vdl:mains FOREACH_IT_START line=15 thread=0-3-50
+2012-06-13 15:51:54,482-0500 DEBUG vdl:mains SCOPE thread=0-3-40
+2012-06-13 15:51:54,482-0500 DEBUG vdl:mains SCOPE thread=0-3-41
+2012-06-13 15:51:54,481-0500 DEBUG vdl:mains SCOPE thread=0-3-38
+2012-06-13 15:51:54,481-0500 DEBUG vdl:mains SCOPE thread=0-3-34
+2012-06-13 15:51:54,481-0500 DEBUG vdl:mains FOREACH_IT_START line=15 thread=0-3-62
+2012-06-13 15:51:54,481-0500 DEBUG vdl:mains SCOPE thread=0-3-42
+2012-06-13 15:51:54,481-0500 DEBUG vdl:mains SCOPE thread=0-3-45
+2012-06-13 15:51:54,481-0500 DEBUG vdl:mains SCOPE thread=0-3-44
+2012-06-13 15:51:54,480-0500 DEBUG vdl:mains FOREACH_IT_START line=15 thread=0-3-63
+2012-06-13 15:51:54,484-0500 DEBUG vdl:mains SCOPE thread=0-3-54
+2012-06-13 15:51:54,484-0500 DEBUG vdl:mains SCOPE thread=0-3-49
+2012-06-13 15:51:54,485-0500 DEBUG vdl:mains SCOPE thread=0-3-60
+2012-06-13 15:51:54,485-0500 DEBUG vdl:mains SCOPE thread=0-3-59
+2012-06-13 15:51:54,485-0500 DEBUG vdl:mains SCOPE thread=0-3-58
+2012-06-13 15:51:54,485-0500 DEBUG vdl:mains SCOPE thread=0-3-56
+2012-06-13 15:51:54,485-0500 DEBUG vdl:mains SCOPE thread=0-3-57
+2012-06-13 15:51:54,486-0500 DEBUG vdl:mains SCOPE thread=0-3-53
+2012-06-13 15:51:54,486-0500 DEBUG vdl:mains SCOPE thread=0-3-50
+2012-06-13 15:51:54,486-0500 DEBUG vdl:mains SCOPE thread=0-3-52
+2012-06-13 15:51:54,480-0500 DEBUG vdl:mains FOREACH_IT_START line=15 thread=0-3-61
+2012-06-13 15:51:54,487-0500 DEBUG vdl:mains SCOPE thread=0-3-63
+2012-06-13 15:51:54,487-0500 DEBUG vdl:mains SCOPE thread=0-3-62
+2012-06-13 15:51:54,484-0500 DEBUG vdl:mains SCOPE thread=0-3-55
+2012-06-13 15:51:54,484-0500 DEBUG vdl:mains SCOPE thread=0-3-51
+2012-06-13 15:51:54,484-0500 DEBUG vdl:mains SCOPE thread=0-3-46
+2012-06-13 15:51:54,483-0500 DEBUG vdl:mains SCOPE thread=0-3-48
+2012-06-13 15:51:54,490-0500 DEBUG vdl:mains SCOPE thread=0-3-61
+2012-06-13 15:51:54,482-0500 DEBUG vdl:mains SCOPE thread=0-3-47
+2012-06-13 15:51:54,510-0500 INFO  SetFieldValue Set: swift#mapper#17006=3.result
+2012-06-13 15:51:54,512-0500 INFO  SetFieldValue Set: swift#mapper#17006=4.result
+2012-06-13 15:51:54,515-0500 INFO  RootDataNode Found mapped data c:countfile - Open.$
+2012-06-13 15:51:54,515-0500 INFO  RootDataNode Found mapped data c:countfile - Open.$
+2012-06-13 15:51:54,516-0500 INFO  SetFieldValue Set: swift#mapper#17006=11.result
+2012-06-13 15:51:54,517-0500 INFO  SetFieldValue Set: swift#mapper#17006=2.result
+2012-06-13 15:51:54,517-0500 INFO  RootDataNode Found mapped data c:countfile - Open.$
+2012-06-13 15:51:54,517-0500 INFO  SetFieldValue Set: swift#mapper#17006=1.result
+2012-06-13 15:51:54,518-0500 INFO  RootDataNode Found mapped data c:countfile - Open.$
+2012-06-13 15:51:54,519-0500 INFO  SetFieldValue Set: swift#mapper#17006=13.result
+2012-06-13 15:51:54,519-0500 INFO  RootDataNode Found mapped data c:countfile - Open.$
+2012-06-13 15:51:54,520-0500 INFO  RootDataNode Found mapped data c:countfile - Open.$
+2012-06-13 15:51:54,523-0500 INFO  SetFieldValue Set: swift#mapper#17006=12.result
+2012-06-13 15:51:54,524-0500 INFO  SetFieldValue Set: swift#mapper#17006=6.result
+2012-06-13 15:51:54,524-0500 INFO  SetFieldValue Set: swift#mapper#17006=21.result
+2012-06-13 15:51:54,524-0500 INFO  SetFieldValue Set: swift#mapper#17006=9.result
+2012-06-13 15:51:54,525-0500 INFO  SetFieldValue Set: swift#mapper#17006=10.result
+2012-06-13 15:51:54,525-0500 INFO  SetFieldValue Set: swift#mapper#17006=14.result
+2012-06-13 15:51:54,525-0500 INFO  SetFieldValue Set: swift#mapper#17006=5.result
+2012-06-13 15:51:54,526-0500 INFO  RootDataNode Found mapped data c:countfile - Open.$
+2012-06-13 15:51:54,526-0500 INFO  RootDataNode Found mapped data c:countfile - Open.$
+2012-06-13 15:51:54,526-0500 INFO  RootDataNode Found mapped data c:countfile - Open.$
+2012-06-13 15:51:54,527-0500 INFO  RootDataNode Found mapped data c:countfile - Open.$
+2012-06-13 15:51:54,527-0500 INFO  RootDataNode Found mapped data c:countfile - Open.$
+2012-06-13 15:51:54,527-0500 INFO  RootDataNode Found mapped data c:countfile - Open.$
+2012-06-13 15:51:54,528-0500 INFO  RootDataNode Found mapped data c:countfile - Open.$
+2012-06-13 15:51:54,528-0500 INFO  SetFieldValue Set: swift#mapper#17006=29.result
+2012-06-13 15:51:54,527-0500 INFO  SetFieldValue Set: swift#mapper#17006=22.result
+2012-06-13 15:51:54,528-0500 INFO  SetFieldValue Set: swift#mapper#17006=18.result
+2012-06-13 15:51:54,529-0500 INFO  SetFieldValue Set: swift#mapper#17006=19.result
+2012-06-13 15:51:54,529-0500 INFO  SetFieldValue Set: swift#mapper#17006=0.result
+2012-06-13 15:51:54,529-0500 INFO  SetFieldValue Set: swift#mapper#17006=15.result
+2012-06-13 15:51:54,530-0500 INFO  SetFieldValue Set: swift#mapper#17006=20.result
+2012-06-13 15:51:54,530-0500 INFO  SetFieldValue Set: swift#mapper#17006=8.result
+2012-06-13 15:51:54,530-0500 INFO  RootDataNode Found mapped data c:countfile - Open.$
+2012-06-13 15:51:54,530-0500 INFO  SetFieldValue Set: swift#mapper#17006=28.result
+2012-06-13 15:51:54,530-0500 INFO  SetFieldValue Set: swift#mapper#17006=25.result
+2012-06-13 15:51:54,530-0500 INFO  RootDataNode Found mapped data c:countfile - Open.$
+2012-06-13 15:51:54,530-0500 INFO  SetFieldValue Set: swift#mapper#17006=33.result
+2012-06-13 15:51:54,531-0500 INFO  SetFieldValue Set: swift#mapper#17006=35.result
+2012-06-13 15:51:54,531-0500 INFO  SetFieldValue Set: swift#mapper#17006=27.result
+2012-06-13 15:51:54,530-0500 INFO  SetFieldValue Set: swift#mapper#17006=7.result
+2012-06-13 15:51:54,531-0500 INFO  RootDataNode Found mapped data c:countfile - Open.$
+2012-06-13 15:51:54,531-0500 INFO  SetFieldValue Set: swift#mapper#17006=31.result
+2012-06-13 15:51:54,532-0500 INFO  SetFieldValue Set: swift#mapper#17006=32.result
+2012-06-13 15:51:54,532-0500 INFO  RootDataNode Found mapped data c:countfile - Open.$
+2012-06-13 15:51:54,532-0500 INFO  SetFieldValue Set: swift#mapper#17006=30.result
+2012-06-13 15:51:54,532-0500 INFO  RootDataNode Found mapped data c:countfile - Open.$
+2012-06-13 15:51:54,533-0500 INFO  RootDataNode Found mapped data c:countfile - Open.$
+2012-06-13 15:51:54,533-0500 INFO  RootDataNode Found mapped data c:countfile - Open.$
+2012-06-13 15:51:54,533-0500 INFO  RootDataNode Found mapped data c:countfile - Open.$
+2012-06-13 15:51:54,533-0500 INFO  RootDataNode Found mapped data c:countfile - Open.$
+2012-06-13 15:51:54,532-0500 INFO  SetFieldValue Set: swift#mapper#17006=23.result
+2012-06-13 15:51:54,533-0500 INFO  RootDataNode Found mapped data c:countfile - Open.$
+2012-06-13 15:51:54,533-0500 INFO  SetFieldValue Set: swift#mapper#17006=36.result
+2012-06-13 15:51:54,533-0500 INFO  SetFieldValue Set: swift#mapper#17006=16.result
+2012-06-13 15:51:54,533-0500 INFO  SetFieldValue Set: swift#mapper#17006=42.result
+2012-06-13 15:51:54,533-0500 INFO  SetFieldValue Set: swift#mapper#17006=59.result
+2012-06-13 15:51:54,533-0500 INFO  RootDataNode Found mapped data c:countfile - Open.$
+2012-06-13 15:51:54,532-0500 INFO  RootDataNode Found mapped data c:countfile - Open.$
+2012-06-13 15:51:54,534-0500 INFO  SetFieldValue Set: swift#mapper#17006=45.result
+2012-06-13 15:51:54,535-0500 INFO  RootDataNode Found mapped data c:countfile - Open.$
+2012-06-13 15:51:54,535-0500 INFO  SetFieldValue Set: swift#mapper#17006=24.result
+2012-06-13 15:51:54,535-0500 INFO  SetFieldValue Set: swift#mapper#17006=17.result
+2012-06-13 15:51:54,535-0500 INFO  SetFieldValue Set: swift#mapper#17006=41.result
+2012-06-13 15:51:54,535-0500 INFO  RootDataNode Found mapped data c:countfile - Open.$
+2012-06-13 15:51:54,536-0500 INFO  RootDataNode Found mapped data c:countfile - Open.$
+2012-06-13 15:51:54,536-0500 INFO  RootDataNode Found mapped data c:countfile - Open.$
+2012-06-13 15:51:54,537-0500 INFO  SetFieldValue Set: swift#mapper#17006=57.result
+2012-06-13 15:51:54,538-0500 INFO  RootDataNode Found mapped data c:countfile - Open.$
+2012-06-13 15:51:54,538-0500 INFO  SetFieldValue Set: swift#mapper#17006=39.result
+2012-06-13 15:51:54,538-0500 INFO  SetFieldValue Set: swift#mapper#17006=26.result
+2012-06-13 15:51:54,539-0500 INFO  SetFieldValue Set: swift#mapper#17006=54.result
+2012-06-13 15:51:54,539-0500 INFO  RootDataNode Found mapped data c:countfile - Open.$
+2012-06-13 15:51:54,540-0500 INFO  RootDataNode Found mapped data c:countfile - Open.$
+2012-06-13 15:51:54,540-0500 INFO  SetFieldValue Set: swift#mapper#17006=38.result
+2012-06-13 15:51:54,532-0500 INFO  SetFieldValue Set: swift#mapper#17006=34.result
+2012-06-13 15:51:54,541-0500 INFO  RootDataNode Found mapped data c:countfile - Open.$
+2012-06-13 15:51:54,536-0500 INFO  RootDataNode Found mapped data c:countfile - Open.$
+2012-06-13 15:51:54,542-0500 INFO  SetFieldValue Set: swift#mapper#17006=56.result
+2012-06-13 15:51:54,542-0500 INFO  RootDataNode Found mapped data c:countfile - Open.$
+2012-06-13 15:51:54,543-0500 INFO  SetFieldValue Set: swift#mapper#17006=51.result
+2012-06-13 15:51:54,543-0500 INFO  RootDataNode Found mapped data c:countfile - Open.$
+2012-06-13 15:51:54,536-0500 INFO  SetFieldValue Set: swift#mapper#17006=37.result
+2012-06-13 15:51:54,536-0500 INFO  SetFieldValue Set: swift#mapper#17006=40.result
+2012-06-13 15:51:54,535-0500 INFO  RootDataNode Found mapped data c:countfile - Open.$
+2012-06-13 15:51:54,543-0500 INFO  RootDataNode Found mapped data c:countfile - Open.$
+2012-06-13 15:51:54,544-0500 INFO  RootDataNode Found mapped data c:countfile - Open.$
+2012-06-13 15:51:54,534-0500 INFO  RootDataNode Found mapped data c:countfile - Open.$
+2012-06-13 15:51:54,534-0500 INFO  SetFieldValue Set: swift#mapper#17006=43.result
+2012-06-13 15:51:54,534-0500 INFO  RootDataNode Found mapped data c:countfile - Open.$
+2012-06-13 15:51:54,534-0500 INFO  RootDataNode Found mapped data c:countfile - Open.$
+2012-06-13 15:51:54,534-0500 INFO  RootDataNode Found mapped data c:countfile - Open.$
+2012-06-13 15:51:54,545-0500 INFO  SetFieldValue Set: swift#mapper#17006=50.result
+2012-06-13 15:51:54,545-0500 INFO  RootDataNode Found mapped data c:countfile - Open.$
+2012-06-13 15:51:54,544-0500 INFO  RootDataNode Found mapped data c:countfile - Open.$
+2012-06-13 15:51:54,544-0500 INFO  SetFieldValue Set: swift#mapper#17006=52.result
+2012-06-13 15:51:54,546-0500 INFO  SetFieldValue Set: swift#mapper#17006=44.result
+2012-06-13 15:51:54,546-0500 INFO  SetFieldValue Set: swift#mapper#17006=46.result
+2012-06-13 15:51:54,546-0500 INFO  SetFieldValue Set: swift#mapper#17006=63.result
+2012-06-13 15:51:54,547-0500 INFO  SetFieldValue Set: swift#mapper#17006=61.result
+2012-06-13 15:51:54,547-0500 INFO  SetFieldValue Set: swift#mapper#17006=53.result
+2012-06-13 15:51:54,544-0500 INFO  SetFieldValue Set: swift#mapper#17006=58.result
+2012-06-13 15:51:54,543-0500 INFO  RootDataNode Found mapped data c:countfile - Open.$
+2012-06-13 15:51:54,543-0500 INFO  RootDataNode Found mapped data c:countfile - Open.$
+2012-06-13 15:51:54,548-0500 INFO  RootDataNode Found mapped data c:countfile - Open.$
+2012-06-13 15:51:54,548-0500 INFO  SetFieldValue Set: swift#mapper#17006=47.result
+2012-06-13 15:51:54,549-0500 INFO  RootDataNode Found mapped data c:countfile - Open.$
+2012-06-13 15:51:54,549-0500 INFO  RootDataNode Found mapped data c:countfile - Open.$
+2012-06-13 15:51:54,549-0500 INFO  SetFieldValue Set: swift#mapper#17006=62.result
+2012-06-13 15:51:54,549-0500 INFO  SetFieldValue Set: swift#mapper#17006=49.result
+2012-06-13 15:51:54,547-0500 INFO  RootDataNode Found mapped data c:countfile - Open.$
+2012-06-13 15:51:54,546-0500 INFO  RootDataNode Found mapped data c:countfile - Open.$
+2012-06-13 15:51:54,546-0500 INFO  SetFieldValue Set: swift#mapper#17006=55.result
+2012-06-13 15:51:54,545-0500 INFO  SetFieldValue Set: swift#mapper#17006=60.result
+2012-06-13 15:51:54,545-0500 INFO  RootDataNode Found mapped data c:countfile - Open.$
+2012-06-13 15:51:54,551-0500 INFO  RootDataNode Found mapped data c:countfile - Open.$
+2012-06-13 15:51:54,551-0500 INFO  RootDataNode Found mapped data c:countfile - Open.$
+2012-06-13 15:51:54,552-0500 INFO  RootDataNode Found mapped data c:countfile - Open.$
+2012-06-13 15:51:54,552-0500 INFO  SetFieldValue Set: swift#mapper#17006=48.result
+2012-06-13 15:51:54,545-0500 INFO  RootDataNode Found mapped data c:countfile - Open.$
+2012-06-13 15:51:54,552-0500 INFO  RootDataNode Found mapped data c:countfile - Open.$
+2012-06-13 15:51:54,554-0500 INFO  RootDataNode Found mapped data c:countfile - Open.$
+2012-06-13 15:51:54,555-0500 DEBUG countwords PROCEDURE line=4 thread=0-3-3-1 name=countwords
+2012-06-13 15:51:54,551-0500 INFO  RootDataNode Found mapped data c:countfile - Open.$
+2012-06-13 15:51:54,550-0500 INFO  RootDataNode Found mapped data c:countfile - Open.$
+2012-06-13 15:51:54,550-0500 INFO  RootDataNode Found mapped data c:countfile - Open.$
+2012-06-13 15:51:54,556-0500 DEBUG countwords PROCEDURE line=4 thread=0-3-2-1 name=countwords
+2012-06-13 15:51:54,549-0500 INFO  RootDataNode Found mapped data c:countfile - Open.$
+2012-06-13 15:51:54,548-0500 INFO  RootDataNode Found mapped data c:countfile - Open.$
+2012-06-13 15:51:54,555-0500 DEBUG countwords PROCEDURE line=4 thread=0-3-4-1 name=countwords
+2012-06-13 15:51:54,557-0500 DEBUG countwords PROCEDURE line=4 thread=0-3-14-1 name=countwords
+2012-06-13 15:51:54,555-0500 DEBUG countwords PROCEDURE line=4 thread=0-3-11-1 name=countwords
+2012-06-13 15:51:54,557-0500 DEBUG countwords PROCEDURE line=4 thread=0-3-6-1 name=countwords
+2012-06-13 15:51:54,558-0500 DEBUG countwords PROCEDURE line=4 thread=0-3-22-1 name=countwords
+2012-06-13 15:51:54,558-0500 DEBUG countwords PROCEDURE line=4 thread=0-3-5-1 name=countwords
+2012-06-13 15:51:54,555-0500 DEBUG countwords PROCEDURE line=4 thread=0-3-1-1 name=countwords
+2012-06-13 15:51:54,558-0500 DEBUG countwords PROCEDURE line=4 thread=0-3-12-1 name=countwords
+2012-06-13 15:51:54,558-0500 DEBUG countwords PROCEDURE line=4 thread=0-3-21-1 name=countwords
+2012-06-13 15:51:54,558-0500 DEBUG countwords PROCEDURE line=4 thread=0-3-18-1 name=countwords
+2012-06-13 15:51:54,557-0500 DEBUG countwords PROCEDURE line=4 thread=0-3-9-1 name=countwords
+2012-06-13 15:51:54,556-0500 DEBUG countwords PROCEDURE line=4 thread=0-3-13-1 name=countwords
+2012-06-13 15:51:54,559-0500 DEBUG countwords PROCEDURE line=4 thread=0-3-7-1 name=countwords
+2012-06-13 15:51:54,559-0500 DEBUG countwords PROCEDURE line=4 thread=0-3-20-1 name=countwords
+2012-06-13 15:51:54,559-0500 DEBUG countwords PROCEDURE line=4 thread=0-3-10-1 name=countwords
+2012-06-13 15:51:54,559-0500 DEBUG countwords PROCEDURE line=4 thread=0-3-33-1 name=countwords
+2012-06-13 15:51:54,559-0500 DEBUG countwords PROCEDURE line=4 thread=0-3-8-1 name=countwords
+2012-06-13 15:51:54,559-0500 DEBUG countwords PROCEDURE line=4 thread=0-3-29-1 name=countwords
+2012-06-13 15:51:54,560-0500 DEBUG countwords PROCEDURE line=4 thread=0-3-19-1 name=countwords
+2012-06-13 15:51:54,560-0500 DEBUG countwords PROCEDURE line=4 thread=0-3-0-1 name=countwords
+2012-06-13 15:51:54,560-0500 DEBUG countwords PROCEDURE line=4 thread=0-3-28-1 name=countwords
+2012-06-13 15:51:54,559-0500 DEBUG countwords PROCEDURE line=4 thread=0-3-23-1 name=countwords
+2012-06-13 15:51:54,560-0500 DEBUG countwords PROCEDURE line=4 thread=0-3-34-1 name=countwords
+2012-06-13 15:51:54,559-0500 DEBUG countwords PROCEDURE line=4 thread=0-3-25-1 name=countwords
+2012-06-13 15:51:54,560-0500 DEBUG countwords PROCEDURE line=4 thread=0-3-43-1 name=countwords
+2012-06-13 15:51:54,561-0500 DEBUG countwords PROCEDURE line=4 thread=0-3-27-1 name=countwords
+2012-06-13 15:51:54,560-0500 DEBUG countwords PROCEDURE line=4 thread=0-3-42-1 name=countwords
+2012-06-13 15:51:54,560-0500 DEBUG countwords PROCEDURE line=4 thread=0-3-36-1 name=countwords
+2012-06-13 15:51:54,561-0500 DEBUG countwords PROCEDURE line=4 thread=0-3-57-1 name=countwords
+2012-06-13 15:51:54,561-0500 DEBUG countwords PROCEDURE line=4 thread=0-3-26-1 name=countwords
+2012-06-13 15:51:54,561-0500 DEBUG countwords PROCEDURE line=4 thread=0-3-15-1 name=countwords
+2012-06-13 15:51:54,562-0500 DEBUG countwords PROCEDURE line=4 thread=0-3-35-1 name=countwords
+2012-06-13 15:51:54,562-0500 DEBUG countwords PROCEDURE line=4 thread=0-3-54-1 name=countwords
+2012-06-13 15:51:54,562-0500 DEBUG countwords PROCEDURE line=4 thread=0-3-41-1 name=countwords
+2012-06-13 15:51:54,563-0500 DEBUG countwords PROCEDURE line=4 thread=0-3-30-1 name=countwords
+2012-06-13 15:51:54,563-0500 DEBUG countwords PROCEDURE line=4 thread=0-3-58-1 name=countwords
+2012-06-13 15:51:54,563-0500 DEBUG countwords PROCEDURE line=4 thread=0-3-38-1 name=countwords
+2012-06-13 15:51:54,563-0500 DEBUG countwords PROCEDURE line=4 thread=0-3-50-1 name=countwords
+2012-06-13 15:51:54,561-0500 DEBUG countwords PROCEDURE line=4 thread=0-3-32-1 name=countwords
+2012-06-13 15:51:54,561-0500 DEBUG countwords PROCEDURE line=4 thread=0-3-37-1 name=countwords
+2012-06-13 15:51:54,564-0500 DEBUG countwords PROCEDURE line=4 thread=0-3-40-1 name=countwords
+2012-06-13 15:51:54,561-0500 DEBUG countwords PROCEDURE line=4 thread=0-3-16-1 name=countwords
+2012-06-13 15:51:54,561-0500 DEBUG countwords PROCEDURE line=4 thread=0-3-59-1 name=countwords
+2012-06-13 15:51:54,564-0500 DEBUG countwords PROCEDURE line=4 thread=0-3-46-1 name=countwords
+2012-06-13 15:51:54,564-0500 DEBUG countwords PROCEDURE line=4 thread=0-3-51-1 name=countwords
+2012-06-13 15:51:54,564-0500 DEBUG countwords PROCEDURE line=4 thread=0-3-52-1 name=countwords
+2012-06-13 15:51:54,564-0500 DEBUG countwords PROCEDURE line=4 thread=0-3-53-1 name=countwords
+2012-06-13 15:51:54,564-0500 DEBUG countwords PROCEDURE line=4 thread=0-3-47-1 name=countwords
+2012-06-13 15:51:54,565-0500 DEBUG countwords PROCEDURE line=4 thread=0-3-61-1 name=countwords
+2012-06-13 15:51:54,565-0500 DEBUG countwords PROCEDURE line=4 thread=0-3-44-1 name=countwords
+2012-06-13 15:51:54,565-0500 DEBUG countwords PROCEDURE line=4 thread=0-3-62-1 name=countwords
+2012-06-13 15:51:54,565-0500 DEBUG countwords PROCEDURE line=4 thread=0-3-63-1 name=countwords
+2012-06-13 15:51:54,566-0500 DEBUG countwords PROCEDURE line=4 thread=0-3-49-1 name=countwords
+2012-06-13 15:51:54,567-0500 DEBUG countwords PROCEDURE line=4 thread=0-3-48-1 name=countwords
+2012-06-13 15:51:54,563-0500 DEBUG countwords PROCEDURE line=4 thread=0-3-24-1 name=countwords
+2012-06-13 15:51:54,563-0500 DEBUG countwords PROCEDURE line=4 thread=0-3-60-1 name=countwords
+2012-06-13 15:51:54,563-0500 DEBUG countwords PROCEDURE line=4 thread=0-3-31-1 name=countwords
+2012-06-13 15:51:54,563-0500 DEBUG countwords PROCEDURE line=4 thread=0-3-39-1 name=countwords
+2012-06-13 15:51:54,562-0500 DEBUG countwords PROCEDURE line=4 thread=0-3-56-1 name=countwords
+2012-06-13 15:51:54,562-0500 DEBUG countwords PROCEDURE line=4 thread=0-3-45-1 name=countwords
+2012-06-13 15:51:54,561-0500 DEBUG countwords PROCEDURE line=4 thread=0-3-17-1 name=countwords
+2012-06-13 15:51:54,568-0500 DEBUG countwords PROCEDURE line=4 thread=0-3-55-1 name=countwords
+2012-06-13 15:51:54,588-0500 INFO  vdl:execute START thread=0-3-20-1 tr=cka
+2012-06-13 15:51:54,588-0500 INFO  vdl:execute START thread=0-3-14-1 tr=cka
+2012-06-13 15:51:54,588-0500 INFO  vdl:execute START thread=0-3-47-1 tr=cka
+2012-06-13 15:51:54,588-0500 INFO  vdl:execute START thread=0-3-59-1 tr=cka
+2012-06-13 15:51:54,588-0500 INFO  vdl:execute START thread=0-3-26-1 tr=cka
+2012-06-13 15:51:54,588-0500 INFO  vdl:execute START thread=0-3-49-1 tr=cka
+2012-06-13 15:51:54,588-0500 INFO  vdl:execute START thread=0-3-18-1 tr=cka
+2012-06-13 15:51:54,588-0500 INFO  vdl:execute START thread=0-3-12-1 tr=cka
+2012-06-13 15:51:54,588-0500 INFO  vdl:execute START thread=0-3-7-1 tr=cka
+2012-06-13 15:51:54,589-0500 INFO  vdl:execute START thread=0-3-25-1 tr=cka
+2012-06-13 15:51:54,589-0500 INFO  vdl:execute START thread=0-3-22-1 tr=cka
+2012-06-13 15:51:54,589-0500 INFO  vdl:execute START thread=0-3-6-1 tr=cka
+2012-06-13 15:51:54,589-0500 INFO  vdl:execute START thread=0-3-11-1 tr=cka
+2012-06-13 15:51:54,588-0500 INFO  vdl:execute START thread=0-3-38-1 tr=cka
+2012-06-13 15:51:54,588-0500 INFO  vdl:execute START thread=0-3-29-1 tr=cka
+2012-06-13 15:51:54,588-0500 INFO  vdl:execute START thread=0-3-58-1 tr=cka
+2012-06-13 15:51:54,588-0500 INFO  vdl:execute START thread=0-3-21-1 tr=cka
+2012-06-13 15:51:54,588-0500 INFO  vdl:execute START thread=0-3-15-1 tr=cka
+2012-06-13 15:51:54,588-0500 INFO  vdl:execute START thread=0-3-46-1 tr=cka
+2012-06-13 15:51:54,590-0500 INFO  vdl:execute START thread=0-3-30-1 tr=cka
+2012-06-13 15:51:54,588-0500 INFO  vdl:execute START thread=0-3-57-1 tr=cka
+2012-06-13 15:51:54,590-0500 INFO  vdl:execute START thread=0-3-40-1 tr=cka
+2012-06-13 15:51:54,590-0500 INFO  vdl:execute START thread=0-3-10-1 tr=cka
+2012-06-13 15:51:54,590-0500 INFO  vdl:execute START thread=0-3-33-1 tr=cka
+2012-06-13 15:51:54,589-0500 INFO  vdl:execute START thread=0-3-43-1 tr=cka
+2012-06-13 15:51:54,589-0500 INFO  vdl:execute START thread=0-3-32-1 tr=cka
+2012-06-13 15:51:54,589-0500 INFO  vdl:execute START thread=0-3-9-1 tr=cka
+2012-06-13 15:51:54,591-0500 INFO  vdl:execute START thread=0-3-48-1 tr=cka
+2012-06-13 15:51:54,591-0500 INFO  vdl:execute START thread=0-3-37-1 tr=cka
+2012-06-13 15:51:54,589-0500 INFO  vdl:execute START thread=0-3-50-1 tr=cka
+2012-06-13 15:51:54,592-0500 INFO  vdl:execute START thread=0-3-24-1 tr=cka
+2012-06-13 15:51:54,592-0500 INFO  vdl:execute START thread=0-3-39-1 tr=cka
+2012-06-13 15:51:54,592-0500 INFO  vdl:execute START thread=0-3-56-1 tr=cka
+2012-06-13 15:51:54,589-0500 INFO  vdl:execute START thread=0-3-19-1 tr=cka
+2012-06-13 15:51:54,589-0500 INFO  vdl:execute START thread=0-3-28-1 tr=cka
+2012-06-13 15:51:54,589-0500 INFO  vdl:execute START thread=0-3-13-1 tr=cka
+2012-06-13 15:51:54,589-0500 INFO  vdl:execute START thread=0-3-53-1 tr=cka
+2012-06-13 15:51:54,592-0500 INFO  vdl:execute START thread=0-3-52-1 tr=cka
+2012-06-13 15:51:54,592-0500 INFO  vdl:execute START thread=0-3-36-1 tr=cka
+2012-06-13 15:51:54,593-0500 INFO  vdl:execute START thread=0-3-17-1 tr=cka
+2012-06-13 15:51:54,593-0500 INFO  vdl:execute START thread=0-3-23-1 tr=cka
+2012-06-13 15:51:54,593-0500 INFO  vdl:execute START thread=0-3-54-1 tr=cka
+2012-06-13 15:51:54,593-0500 INFO  vdl:execute START thread=0-3-41-1 tr=cka
+2012-06-13 15:51:54,594-0500 INFO  vdl:execute START thread=0-3-51-1 tr=cka
+2012-06-13 15:51:54,592-0500 INFO  vdl:execute START thread=0-3-35-1 tr=cka
+2012-06-13 15:51:54,592-0500 INFO  vdl:execute START thread=0-3-3-1 tr=cka
+2012-06-13 15:51:54,595-0500 INFO  vdl:execute START thread=0-3-61-1 tr=cka
+2012-06-13 15:51:54,595-0500 INFO  vdl:execute START thread=0-3-55-1 tr=cka
+2012-06-13 15:51:54,595-0500 INFO  vdl:execute START thread=0-3-63-1 tr=cka
+2012-06-13 15:51:54,592-0500 INFO  vdl:execute START thread=0-3-45-1 tr=cka
+2012-06-13 15:51:54,592-0500 INFO  vdl:execute START thread=0-3-4-1 tr=cka
+2012-06-13 15:51:54,592-0500 INFO  vdl:execute START thread=0-3-31-1 tr=cka
+2012-06-13 15:51:54,590-0500 INFO  vdl:execute START thread=0-3-1-1 tr=cka
+2012-06-13 15:51:54,590-0500 INFO  vdl:execute START thread=0-3-62-1 tr=cka
+2012-06-13 15:51:54,590-0500 INFO  vdl:execute START thread=0-3-2-1 tr=cka
+2012-06-13 15:51:54,596-0500 INFO  vdl:execute START thread=0-3-42-1 tr=cka
+2012-06-13 15:51:54,596-0500 INFO  vdl:execute START thread=0-3-8-1 tr=cka
+2012-06-13 15:51:54,595-0500 INFO  vdl:execute START thread=0-3-16-1 tr=cka
+2012-06-13 15:51:54,595-0500 INFO  vdl:execute START thread=0-3-44-1 tr=cka
+2012-06-13 15:51:54,594-0500 INFO  vdl:execute START thread=0-3-5-1 tr=cka
+2012-06-13 15:51:54,593-0500 INFO  vdl:execute START thread=0-3-34-1 tr=cka
+2012-06-13 15:51:54,596-0500 INFO  vdl:execute START thread=0-3-0-1 tr=cka
+2012-06-13 15:51:54,596-0500 INFO  vdl:execute START thread=0-3-27-1 tr=cka
+2012-06-13 15:51:54,599-0500 INFO  vdl:execute START thread=0-3-60-1 tr=cka
+2012-06-13 15:51:54,627-0500 INFO  WeightedHostScoreScheduler CONTACT_SELECTED host=localhost, score=99.854
+2012-06-13 15:51:54,629-0500 INFO  GlobalSubmitQueue No global submit throttle set. Using default (1024)
+2012-06-13 15:51:54,631-0500 INFO  LateBindingScheduler JobQueue: 63
+2012-06-13 15:51:54,633-0500 INFO  LateBindingScheduler JobQueue: 63
+2012-06-13 15:51:54,634-0500 INFO  vdl:initshareddir START host=localhost - Initializing shared directory
+2012-06-13 15:51:54,636-0500 INFO  LateBindingScheduler JobQueue: 63
+2012-06-13 15:51:54,648-0500 INFO  LateBindingScheduler JobQueue: 63
+2012-06-13 15:51:54,651-0500 INFO  LateBindingScheduler JobQueue: 63
+2012-06-13 15:51:54,653-0500 INFO  LateBindingScheduler JobQueue: 63
+2012-06-13 15:51:54,658-0500 INFO  LateBindingScheduler JobQueue: 63
+2012-06-13 15:51:54,662-0500 INFO  LateBindingScheduler JobQueue: 63
+2012-06-13 15:51:54,665-0500 INFO  vdl:initshareddir END host=localhost - Done initializing shared directory
+2012-06-13 15:51:54,669-0500 DEBUG vdl:execute2 THREAD_ASSOCIATION jobid=cka-o4zhypsk thread=0-3-40-1-1 host=localhost replicationGroup=24zhypsk
+2012-06-13 15:51:54,683-0500 INFO  vdl:createdirset START jobid=cka-o4zhypsk host=localhost - Initializing directory structure
+2012-06-13 15:51:54,683-0500 INFO  vdl:createdirset END jobid=cka-o4zhypsk - Done initializing directory structure
+2012-06-13 15:51:54,683-0500 INFO  vdl:dostagein START jobid=cka-o4zhypsk - Staging in files
+2012-06-13 15:51:54,686-0500 INFO  vdl:dostagein END jobid=cka-o4zhypsk - Staging in finished
+2012-06-13 15:51:54,687-0500 DEBUG vdl:execute2 JOB_START jobid=cka-o4zhypsk tr=cka arguments=[-nkernels=, 1.0, -kernel_time=, 100.0] tmpdir=gpu-20120613-1551-7emaqhm5/jobs/o/cka-o4zhypsk host=localhost
+2012-06-13 15:51:54,690-0500 DEBUG textfiles BEGIN TC:
+#This is the transformation catalog.
+#
+#It comes pre-configured with a number of simple transformations with
+#paths that are likely to work on a linux box. However, on some systems,
+#the paths to these executables will be different (for example, sometimes
+#some of these programs are found in /usr/bin rather than in /bin)
+#
+#NOTE WELL: fields in this file must be separated by tabs, not spaces; and
+#there must be no trailing whitespace at the end of each line.
+#
+# sitename  transformation  path   INSTALLED  platform  profiles
+localhost 	echo 		/bin/echo	INSTALLED	INTEL32::LINUX	null
+localhost 	cat 		/bin/cat	INSTALLED	INTEL32::LINUX	null
+localhost 	ls 		/bin/ls		INSTALLED	INTEL32::LINUX	null
+localhost 	grep 		/bin/grep	INSTALLED	INTEL32::LINUX	null
+localhost 	sort 		/bin/sort	INSTALLED	INTEL32::LINUX	null
+localhost 	paste 		/bin/paste	INSTALLED	INTEL32::LINUX	null
+localhost 	cp 		/bin/cp         INSTALLED	INTEL32::LINUX	null
+localhost 	touch 		/bin/touch      INSTALLED	INTEL32::LINUX	null
+localhost	wc		/usr/bin/wc	INSTALLED	INTEL32::LINUX	null
+localhost	sh		/bin/wc		INSTALLED	INTEL32::LINUX	null
+localhost	cka		/home/skrieder/gpu-test/cka	INSTALLED	INTEL32::LINUX	null
+
+
+
+2012-06-13 15:51:54,690-0500 DEBUG textfiles END TC:
+2012-06-13 15:51:54,704-0500 INFO  GridExec TASK_DEFINITION: Task(type=JOB_SUBMISSION, identity=urn:0-3-40-1-1-1339620713724) is /bin/bash shared/_swiftwrap cka-o4zhypsk -jobdir o -scratch  -e /home/skrieder/gpu-test/cka -out 40.result -err stderr.txt -i -d  -if  -of 40.result -k  -cdmfile  -status files -a -nkernels= 1 -kernel_time= 100
+2012-06-13 15:51:54,721-0500 INFO  JobSubmissionTaskHandler Submit: in: /var/tmp/gpu-20120613-1551-7emaqhm5 command: /bin/bash /var/tmp/gpu-20120613-1551-7emaqhm5/shared/_swiftwrap cka-o4zhypsk -jobdir o -scratch  -e /home/skrieder/gpu-test/cka -out 40.result -err stderr.txt -i -d  -if  -of 40.result -k  -cdmfile  -status files -a -nkernels= 1 -kernel_time= 100
+2012-06-13 15:51:55,011-0500 INFO  LateBindingScheduler JobQueue: 63
+2012-06-13 15:51:55,015-0500 DEBUG vdl:checkjobstatus START jobid=cka-o4zhypsk
+2012-06-13 15:51:55,019-0500 INFO  LateBindingScheduler JobQueue: 63
+2012-06-13 15:51:55,020-0500 INFO  vdl:checkjobstatus SUCCESS jobid=cka-o4zhypsk - Success file found
+2012-06-13 15:51:55,022-0500 DEBUG vdl:execute2 STAGING_OUT jobid=cka-o4zhypsk
+2012-06-13 15:51:55,024-0500 INFO  vdl:dostageout START jobid=cka-o4zhypsk - Staging out files
+2012-06-13 15:51:55,025-0500 DEBUG vdl:dostageout stageouts: [[$, c:countfile - Open]]
+2012-06-13 15:51:55,036-0500 DEBUG vdl:dostageout FILE_STAGE_OUT_START srcname=40.result srcdir=gpu-20120613-1551-7emaqhm5/shared/ srchost=localhost destdir= desthost=localhost provider=file
+2012-06-13 15:51:55,041-0500 INFO  LateBindingScheduler JobQueue: 63
+2012-06-13 15:51:55,061-0500 INFO  LateBindingScheduler JobQueue: 63
+2012-06-13 15:51:55,062-0500 DEBUG vdl:dostageout FILE_STAGE_OUT_END srcname=40.result srcdir=gpu-20120613-1551-7emaqhm5/shared/ srchost=localhost destdir= desthost=localhost provider=file
+2012-06-13 15:51:55,070-0500 INFO  LateBindingScheduler JobQueue: 63
+2012-06-13 15:51:55,082-0500 INFO  vdl:dostageout END jobid=cka-o4zhypsk - Staging out finished
+2012-06-13 15:51:55,088-0500 DEBUG vdl:execute2 JOB_END jobid=cka-o4zhypsk
+2012-06-13 15:51:55,090-0500 INFO  vdl:execute END_SUCCESS thread=0-3-40-1 tr=cka
+2012-06-13 15:51:55,092-0500 DEBUG countwords PROCEDURE_END line=4
+2012-06-13 15:51:55,092-0500 DEBUG vdl:mains FOREACH_IT_END line=15 thread=0-3-40
+2012-06-13 15:51:55,573-0500 INFO  WeightedHostScoreScheduler CONTACT_SELECTED host=localhost, score=99.854
+2012-06-13 15:51:55,577-0500 DEBUG vdl:execute2 THREAD_ASSOCIATION jobid=cka-p4zhypsk thread=0-3-42-1-1 host=localhost replicationGroup=94zhypsk
+2012-06-13 15:51:55,581-0500 INFO  vdl:createdirset START jobid=cka-p4zhypsk host=localhost - Initializing directory structure
+2012-06-13 15:51:55,581-0500 INFO  vdl:createdirset END jobid=cka-p4zhypsk - Done initializing directory structure
+2012-06-13 15:51:55,582-0500 INFO  vdl:dostagein START jobid=cka-p4zhypsk - Staging in files
+2012-06-13 15:51:55,583-0500 INFO  vdl:dostagein END jobid=cka-p4zhypsk - Staging in finished
+2012-06-13 15:51:55,584-0500 DEBUG vdl:execute2 JOB_START jobid=cka-p4zhypsk tr=cka arguments=[-nkernels=, 1.0, -kernel_time=, 100.0] tmpdir=gpu-20120613-1551-7emaqhm5/jobs/p/cka-p4zhypsk host=localhost
+2012-06-13 15:51:55,589-0500 INFO  GridExec TASK_DEFINITION: Task(type=JOB_SUBMISSION, identity=urn:0-3-42-1-1-1339620713735) is /bin/bash shared/_swiftwrap cka-p4zhypsk -jobdir p -scratch  -e /home/skrieder/gpu-test/cka -out 42.result -err stderr.txt -i -d  -if  -of 42.result -k  -cdmfile  -status files -a -nkernels= 1 -kernel_time= 100
+2012-06-13 15:51:55,589-0500 INFO  JobSubmissionTaskHandler Submit: in: /var/tmp/gpu-20120613-1551-7emaqhm5 command: /bin/bash /var/tmp/gpu-20120613-1551-7emaqhm5/shared/_swiftwrap cka-p4zhypsk -jobdir p -scratch  -e /home/skrieder/gpu-test/cka -out 42.result -err stderr.txt -i -d  -if  -of 42.result -k  -cdmfile  -status files -a -nkernels= 1 -kernel_time= 100
+2012-06-13 15:51:55,815-0500 INFO  LateBindingScheduler JobQueue: 62
+2012-06-13 15:51:55,817-0500 DEBUG vdl:checkjobstatus START jobid=cka-p4zhypsk
+2012-06-13 15:51:55,819-0500 INFO  LateBindingScheduler JobQueue: 62
+2012-06-13 15:51:55,820-0500 INFO  vdl:checkjobstatus SUCCESS jobid=cka-p4zhypsk - Success file found
+2012-06-13 15:51:55,821-0500 DEBUG vdl:execute2 STAGING_OUT jobid=cka-p4zhypsk
+2012-06-13 15:51:55,822-0500 INFO  vdl:dostageout START jobid=cka-p4zhypsk - Staging out files
+2012-06-13 15:51:55,822-0500 DEBUG vdl:dostageout stageouts: [[$, c:countfile - Open]]
+2012-06-13 15:51:55,825-0500 DEBUG vdl:dostageout FILE_STAGE_OUT_START srcname=42.result srcdir=gpu-20120613-1551-7emaqhm5/shared/ srchost=localhost destdir= desthost=localhost provider=file
+2012-06-13 15:51:55,828-0500 INFO  LateBindingScheduler JobQueue: 62
+2012-06-13 15:51:55,835-0500 INFO  LateBindingScheduler JobQueue: 62
+2012-06-13 15:51:55,836-0500 DEBUG vdl:dostageout FILE_STAGE_OUT_END srcname=42.result srcdir=gpu-20120613-1551-7emaqhm5/shared/ srchost=localhost destdir= desthost=localhost provider=file
+2012-06-13 15:51:55,839-0500 INFO  LateBindingScheduler JobQueue: 62
+2012-06-13 15:51:55,841-0500 INFO  vdl:dostageout END jobid=cka-p4zhypsk - Staging out finished
+2012-06-13 15:51:55,842-0500 DEBUG vdl:execute2 JOB_END jobid=cka-p4zhypsk
+2012-06-13 15:51:55,843-0500 INFO  vdl:execute END_SUCCESS thread=0-3-42-1 tr=cka
+2012-06-13 15:51:55,844-0500 DEBUG countwords PROCEDURE_END line=4
+2012-06-13 15:51:55,845-0500 DEBUG vdl:mains FOREACH_IT_END line=15 thread=0-3-42
+2012-06-13 15:51:56,341-0500 INFO  WeightedHostScoreScheduler CONTACT_SELECTED host=localhost, score=99.854
+2012-06-13 15:51:56,344-0500 DEBUG vdl:execute2 THREAD_ASSOCIATION jobid=cka-q4zhypsk thread=0-3-49-1-1 host=localhost replicationGroup=h4zhypsk
+2012-06-13 15:51:56,347-0500 INFO  vdl:createdirset START jobid=cka-q4zhypsk host=localhost - Initializing directory structure
+2012-06-13 15:51:56,348-0500 INFO  vdl:createdirset END jobid=cka-q4zhypsk - Done initializing directory structure
+2012-06-13 15:51:56,348-0500 INFO  vdl:dostagein START jobid=cka-q4zhypsk - Staging in files
+2012-06-13 15:51:56,349-0500 INFO  vdl:dostagein END jobid=cka-q4zhypsk - Staging in finished
+2012-06-13 15:51:56,350-0500 DEBUG vdl:execute2 JOB_START jobid=cka-q4zhypsk tr=cka arguments=[-nkernels=, 1.0, -kernel_time=, 100.0] tmpdir=gpu-20120613-1551-7emaqhm5/jobs/q/cka-q4zhypsk host=localhost
+2012-06-13 15:51:56,356-0500 INFO  GridExec TASK_DEFINITION: Task(type=JOB_SUBMISSION, identity=urn:0-3-49-1-1-1339620713746) is /bin/bash shared/_swiftwrap cka-q4zhypsk -jobdir q -scratch  -e /home/skrieder/gpu-test/cka -out 49.result -err stderr.txt -i -d  -if  -of 49.result -k  -cdmfile  -status files -a -nkernels= 1 -kernel_time= 100
+2012-06-13 15:51:56,356-0500 INFO  JobSubmissionTaskHandler Submit: in: /var/tmp/gpu-20120613-1551-7emaqhm5 command: /bin/bash /var/tmp/gpu-20120613-1551-7emaqhm5/shared/_swiftwrap cka-q4zhypsk -jobdir q -scratch  -e /home/skrieder/gpu-test/cka -out 49.result -err stderr.txt -i -d  -if  -of 49.result -k  -cdmfile  -status files -a -nkernels= 1 -kernel_time= 100
+2012-06-13 15:51:56,582-0500 INFO  LateBindingScheduler JobQueue: 61
+2012-06-13 15:51:56,585-0500 DEBUG vdl:checkjobstatus START jobid=cka-q4zhypsk
+2012-06-13 15:51:56,587-0500 INFO  LateBindingScheduler JobQueue: 61
+2012-06-13 15:51:56,588-0500 INFO  vdl:checkjobstatus SUCCESS jobid=cka-q4zhypsk - Success file found
+2012-06-13 15:51:56,589-0500 DEBUG vdl:execute2 STAGING_OUT jobid=cka-q4zhypsk
+2012-06-13 15:51:56,589-0500 INFO  vdl:dostageout START jobid=cka-q4zhypsk - Staging out files
+2012-06-13 15:51:56,590-0500 DEBUG vdl:dostageout stageouts: [[$, c:countfile - Open]]
+2012-06-13 15:51:56,592-0500 DEBUG vdl:dostageout FILE_STAGE_OUT_START srcname=49.result srcdir=gpu-20120613-1551-7emaqhm5/shared/ srchost=localhost destdir= desthost=localhost provider=file
+2012-06-13 15:51:56,596-0500 INFO  LateBindingScheduler JobQueue: 61
+2012-06-13 15:51:56,603-0500 INFO  LateBindingScheduler JobQueue: 61
+2012-06-13 15:51:56,604-0500 DEBUG vdl:dostageout FILE_STAGE_OUT_END srcname=49.result srcdir=gpu-20120613-1551-7emaqhm5/shared/ srchost=localhost destdir= desthost=localhost provider=file
+2012-06-13 15:51:56,607-0500 INFO  LateBindingScheduler JobQueue: 61
+2012-06-13 15:51:56,609-0500 INFO  vdl:dostageout END jobid=cka-q4zhypsk - Staging out finished
+2012-06-13 15:51:56,610-0500 DEBUG vdl:execute2 JOB_END jobid=cka-q4zhypsk
+2012-06-13 15:51:56,611-0500 INFO  vdl:execute END_SUCCESS thread=0-3-49-1 tr=cka
+2012-06-13 15:51:56,612-0500 DEBUG countwords PROCEDURE_END line=4
+2012-06-13 15:51:56,614-0500 DEBUG vdl:mains FOREACH_IT_END line=15 thread=0-3-49
+2012-06-13 15:51:57,108-0500 INFO  WeightedHostScoreScheduler CONTACT_SELECTED host=localhost, score=99.854
+2012-06-13 15:51:57,111-0500 DEBUG vdl:execute2 THREAD_ASSOCIATION jobid=cka-r4zhypsk thread=0-3-56-1-1 host=localhost replicationGroup=13zhypsk
+2012-06-13 15:51:57,119-0500 INFO  vdl:createdirset START jobid=cka-r4zhypsk host=localhost - Initializing directory structure
+2012-06-13 15:51:57,119-0500 INFO  vdl:createdirset END jobid=cka-r4zhypsk - Done initializing directory structure
+2012-06-13 15:51:57,120-0500 INFO  vdl:dostagein START jobid=cka-r4zhypsk - Staging in files
+2012-06-13 15:51:57,121-0500 INFO  vdl:dostagein END jobid=cka-r4zhypsk - Staging in finished
+2012-06-13 15:51:57,122-0500 DEBUG vdl:execute2 JOB_START jobid=cka-r4zhypsk tr=cka arguments=[-nkernels=, 1.0, -kernel_time=, 100.0] tmpdir=gpu-20120613-1551-7emaqhm5/jobs/r/cka-r4zhypsk host=localhost
+2012-06-13 15:51:57,127-0500 INFO  GridExec TASK_DEFINITION: Task(type=JOB_SUBMISSION, identity=urn:0-3-56-1-1-1339620713757) is /bin/bash shared/_swiftwrap cka-r4zhypsk -jobdir r -scratch  -e /home/skrieder/gpu-test/cka -out 56.result -err stderr.txt -i -d  -if  -of 56.result -k  -cdmfile  -status files -a -nkernels= 1 -kernel_time= 100
+2012-06-13 15:51:57,129-0500 INFO  JobSubmissionTaskHandler Submit: in: /var/tmp/gpu-20120613-1551-7emaqhm5 command: /bin/bash /var/tmp/gpu-20120613-1551-7emaqhm5/shared/_swiftwrap cka-r4zhypsk -jobdir r -scratch  -e /home/skrieder/gpu-test/cka -out 56.result -err stderr.txt -i -d  -if  -of 56.result -k  -cdmfile  -status files -a -nkernels= 1 -kernel_time= 100
+2012-06-13 15:51:57,356-0500 INFO  LateBindingScheduler JobQueue: 60
+2012-06-13 15:51:57,358-0500 DEBUG vdl:checkjobstatus START jobid=cka-r4zhypsk
+2012-06-13 15:51:57,361-0500 INFO  LateBindingScheduler JobQueue: 60
+2012-06-13 15:51:57,362-0500 INFO  vdl:checkjobstatus SUCCESS jobid=cka-r4zhypsk - Success file found
+2012-06-13 15:51:57,365-0500 DEBUG vdl:execute2 STAGING_OUT jobid=cka-r4zhypsk
+2012-06-13 15:51:57,365-0500 INFO  vdl:dostageout START jobid=cka-r4zhypsk - Staging out files
+2012-06-13 15:51:57,366-0500 DEBUG vdl:dostageout stageouts: [[$, c:countfile - Open]]
+2012-06-13 15:51:57,368-0500 DEBUG vdl:dostageout FILE_STAGE_OUT_START srcname=56.result srcdir=gpu-20120613-1551-7emaqhm5/shared/ srchost=localhost destdir= desthost=localhost provider=file
+2012-06-13 15:51:57,373-0500 INFO  LateBindingScheduler JobQueue: 60
+2012-06-13 15:51:57,383-0500 INFO  LateBindingScheduler JobQueue: 60
+2012-06-13 15:51:57,386-0500 DEBUG vdl:dostageout FILE_STAGE_OUT_END srcname=56.result srcdir=gpu-20120613-1551-7emaqhm5/shared/ srchost=localhost destdir= desthost=localhost provider=file
+2012-06-13 15:51:57,389-0500 INFO  LateBindingScheduler JobQueue: 60
+2012-06-13 15:51:57,395-0500 INFO  vdl:dostageout END jobid=cka-r4zhypsk - Staging out finished
+2012-06-13 15:51:57,396-0500 DEBUG vdl:execute2 JOB_END jobid=cka-r4zhypsk
+2012-06-13 15:51:57,398-0500 INFO  vdl:execute END_SUCCESS thread=0-3-56-1 tr=cka
+2012-06-13 15:51:57,399-0500 DEBUG countwords PROCEDURE_END line=4
+2012-06-13 15:51:57,401-0500 DEBUG vdl:mains FOREACH_IT_END line=15 thread=0-3-56
+2012-06-13 15:51:57,892-0500 INFO  WeightedHostScoreScheduler CONTACT_SELECTED host=localhost, score=99.854
+2012-06-13 15:51:57,895-0500 DEBUG vdl:execute2 THREAD_ASSOCIATION jobid=cka-s4zhypsk thread=0-3-33-1-1 host=localhost replicationGroup=g3zhypsk
+2012-06-13 15:51:57,899-0500 INFO  vdl:createdirset START jobid=cka-s4zhypsk host=localhost - Initializing directory structure
+2012-06-13 15:51:57,899-0500 INFO  vdl:createdirset END jobid=cka-s4zhypsk - Done initializing directory structure
+2012-06-13 15:51:57,900-0500 INFO  vdl:dostagein START jobid=cka-s4zhypsk - Staging in files
+2012-06-13 15:51:57,901-0500 INFO  vdl:dostagein END jobid=cka-s4zhypsk - Staging in finished
+2012-06-13 15:51:57,902-0500 DEBUG vdl:execute2 JOB_START jobid=cka-s4zhypsk tr=cka arguments=[-nkernels=, 1.0, -kernel_time=, 100.0] tmpdir=gpu-20120613-1551-7emaqhm5/jobs/s/cka-s4zhypsk host=localhost
+2012-06-13 15:51:57,906-0500 INFO  GridExec TASK_DEFINITION: Task(type=JOB_SUBMISSION, identity=urn:0-3-33-1-1-1339620713768) is /bin/bash shared/_swiftwrap cka-s4zhypsk -jobdir s -scratch  -e /home/skrieder/gpu-test/cka -out 33.result -err stderr.txt -i -d  -if  -of 33.result -k  -cdmfile  -status files -a -nkernels= 1 -kernel_time= 100
+2012-06-13 15:51:57,908-0500 INFO  JobSubmissionTaskHandler Submit: in: /var/tmp/gpu-20120613-1551-7emaqhm5 command: /bin/bash /var/tmp/gpu-20120613-1551-7emaqhm5/shared/_swiftwrap cka-s4zhypsk -jobdir s -scratch  -e /home/skrieder/gpu-test/cka -out 33.result -err stderr.txt -i -d  -if  -of 33.result -k  -cdmfile  -status files -a -nkernels= 1 -kernel_time= 100

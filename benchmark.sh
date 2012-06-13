@@ -10,12 +10,15 @@ sleeptime=100
     # for k in {1..8}
     for k in {1..1}
     do
+	echo ""
+	echo ""
+	echo ""
 	echo "Throttle count equals: " $throttle    
 	echo "Sleeptime is equal to: " $sleeptime
 	echo "The number of kernels: " $nkernels
 	
 	# run swift
-	time swift -tc.file tc.data -sites.file sites/$throttle-throttle-sites.xml gpu.swift -nkernels=$nkernels -kernel_time=$sleeptime
+	time swift -tc.file tc.data -sites.file sites/$throttle-throttle-sites.xml gpu.swift -nkernels=$nkernels -kernel_time=$sleeptime 2> log.txt
 	
         # double the sleeptime
 	sleeptime=$(expr $sleeptime + $sleeptime)

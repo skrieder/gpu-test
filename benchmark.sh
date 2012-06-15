@@ -1,6 +1,6 @@
 #! /bin/bash                                                                                                                                                                                               
 throttle=1
-nkernels=16
+nkernels=8
 # 1 through 5 for the throttles
 # for i in {1..5}
 for i in {1..5}

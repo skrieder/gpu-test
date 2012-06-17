@@ -1,0 +1,94 @@
+2012-06-15 08:58:55,343-0500 DEBUG Loader arguments: [-tc.file, tc.data, -sites.file, sites/-throttle-sites.xml, gpu.swift, -nkernels=16, -kernel_time=1600]
+2012-06-15 08:58:55,343-0500 DEBUG Loader Max heap: 252248064
+2012-06-15 08:58:55,344-0500 DEBUG textfiles BEGIN SWIFTSCRIPT:
+type messagefile; 
+type countfile; 
+
+app (countfile t) countwords (int nk, int time) {   
+     cka "-nkernels="nk "-kernel_time="time stdout=@filename(t);
+}
+
+int nKernels = @toint(@arg("nkernels","1"));
+int sleepTime = @toint(@arg("kernel_time","1"));
+
+string inputNames = "scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh";
+
+messagefile inputfiles[] <fixed_array_mapper;files=inputNames>;
+
+foreach f,i in inputfiles {
+  countfile c <single_file_mapper; file=@strcat(i, ".result")>;
+  c = countwords(nKernels, sleepTime);
+}
+
+
+2012-06-15 08:58:55,345-0500 DEBUG textfiles END SWIFTSCRIPT:
+2012-06-15 08:58:55,345-0500 INFO  Loader gpu.swift: source file is new. Recompiling.
+2012-06-15 08:58:55,911-0500 INFO  Karajan Validation of XML intermediate file was successful
+2012-06-15 08:58:56,110-0500 DEBUG Loader setting: sites.file to: sites/-throttle-sites.xml
+2012-06-15 08:58:56,110-0500 DEBUG Loader setting: tc.file to: tc.data
+2012-06-15 08:58:56,110-0500 WARN  Loader Could not open: sites/-throttle-sites.xml
+2012-06-15 08:58:56,114-0500 INFO  VDL2ExecutionContext Stack dump:
+Level 1
+[iA = 0, iB = 0, bA = false, bB = false]
+	vdl:instanceconfig = Swift configuration []
+	vdl:operation = run
+	swift.home = /usr/local/swift/bin/..
+	PATH_SEPARATOR = /
+
+
+2012-06-15 08:58:56,769-0500 INFO  unknown Using sites file: sites/-throttle-sites.xml
+2012-06-15 08:58:56,811-0500 DEBUG VDL2ExecutionContext 
+		Could not find sites file: sites/-throttle-sites.xml
+		
+
+		Could not find sites file: sites/-throttle-sites.xml
+		
+
+	at org.globus.cog.karajan.workflow.nodes.FlowNode.fail(FlowNode.java:250)
+	at org.globus.cog.karajan.workflow.nodes.FlowNode.fail(FlowNode.java:254)
+	at org.globus.cog.karajan.workflow.nodes.GenerateErrorNode.post(GenerateErrorNode.java:27)
+	at org.globus.cog.karajan.workflow.nodes.AbstractSequentialWithArguments.completed(AbstractSequentialWithArguments.java:194)
+	at org.globus.cog.karajan.workflow.nodes.FlowNode.complete(FlowNode.java:214)
+	at org.globus.cog.karajan.workflow.nodes.FlowContainer.post(FlowContainer.java:58)
+	at org.globus.cog.karajan.workflow.nodes.functions.AbstractFunction.post(AbstractFunction.java:28)
+	at org.globus.cog.karajan.workflow.nodes.Sequential.startNext(Sequential.java:29)
+	at org.globus.cog.karajan.workflow.nodes.Sequential.executeChildren(Sequential.java:20)
+	at org.globus.cog.karajan.workflow.nodes.FlowContainer.execute(FlowContainer.java:63)
+	at org.globus.cog.karajan.workflow.nodes.FlowNode.restart(FlowNode.java:139)
+	at org.globus.cog.karajan.workflow.nodes.FlowNode.start(FlowNode.java:197)
+	at org.globus.cog.karajan.workflow.FlowElementWrapper.start(FlowElementWrapper.java:227)
+	at org.globus.cog.karajan.workflow.events.EventBus.start(EventBus.java:104)
+	at org.globus.cog.karajan.workflow.events.EventTargetPair.run(EventTargetPair.java:40)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:471)
+	at java.util.concurrent.FutureTask$Sync.innerRun(FutureTask.java:334)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:166)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1110)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:603)
+	at java.lang.Thread.run(Thread.java:722)
+2012-06-15 08:58:56,829-0500 INFO  ExecutionContext Detailed exception: 
+
+		Could not find sites file: sites/-throttle-sites.xml
+		
+
+	at org.globus.cog.karajan.workflow.nodes.FlowNode.fail(FlowNode.java:250)
+	at org.globus.cog.karajan.workflow.nodes.FlowNode.fail(FlowNode.java:254)
+	at org.globus.cog.karajan.workflow.nodes.GenerateErrorNode.post(GenerateErrorNode.java:27)
+	at org.globus.cog.karajan.workflow.nodes.AbstractSequentialWithArguments.completed(AbstractSequentialWithArguments.java:194)
+	at org.globus.cog.karajan.workflow.nodes.FlowNode.complete(FlowNode.java:214)
+	at org.globus.cog.karajan.workflow.nodes.FlowContainer.post(FlowContainer.java:58)
+	at org.globus.cog.karajan.workflow.nodes.functions.AbstractFunction.post(AbstractFunction.java:28)
+	at org.globus.cog.karajan.workflow.nodes.Sequential.startNext(Sequential.java:29)
+	at org.globus.cog.karajan.workflow.nodes.Sequential.executeChildren(Sequential.java:20)
+	at org.globus.cog.karajan.workflow.nodes.FlowContainer.execute(FlowContainer.java:63)
+	at org.globus.cog.karajan.workflow.nodes.FlowNode.restart(FlowNode.java:139)
+	at org.globus.cog.karajan.workflow.nodes.FlowNode.start(FlowNode.java:197)
+	at org.globus.cog.karajan.workflow.FlowElementWrapper.start(FlowElementWrapper.java:227)
+	at org.globus.cog.karajan.workflow.events.EventBus.start(EventBus.java:104)
+	at org.globus.cog.karajan.workflow.events.EventTargetPair.run(EventTargetPair.java:40)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:471)
+	at java.util.concurrent.FutureTask$Sync.innerRun(FutureTask.java:334)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:166)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1110)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:603)
+	at java.lang.Thread.run(Thread.java:722)
+2012-06-15 08:58:56,830-0500 INFO  Loader Swift finished with errors

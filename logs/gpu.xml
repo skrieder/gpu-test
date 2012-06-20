@@ -34,7 +34,7 @@
       <application src="line 4">
         <executable>cka</executable>
         <stdout><function name="filename">
-          <variableReference>t</variableReference></function></stdout><stringConstant>-nkernels=</stringConstant><variableReference>nk</variableReference><stringConstant>-kernel_time=</stringConstant><variableReference>time</variableReference>  </application>
+          <variableReference>t</variableReference></function></stdout><variableReference>nk</variableReference><variableReference>time</variableReference>  </application>
     </binding>
   </procedure>
   <variable name="nKernels" type="int" isGlobal="false" xsi:nil="true"/>

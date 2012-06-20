@@ -1,3 +1,9 @@
-[cka] starting...
-
-> Using CUDA device [0]: GeForce GTX 580
+starting kernel:  1
+starting kernel:  2
+starting kernel:  3
+starting kernel:  4
+starting kernel:  5
+starting kernel:  6
+starting kernel:  7
+starting kernel:  8
+  Running the concurrentKernels was a success

@@ -2,7 +2,7 @@ type messagefile;
 type countfile; 
 
 app (countfile t) countwords (int nk, int time) {   
-     cka "-nkernels="nk "-kernel_time="time stdout=@filename(t);
+     cka nk time stdout=@filename(t);
 }
 
 int nKernels = @toint(@arg("nkernels","1"));

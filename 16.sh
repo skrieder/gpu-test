@@ -5,10 +5,10 @@ nkernels=16
 # for i in {1..5}
 for i in {1..1}
 do
-sleeptime=100
+sleeptime=1000
     # 1 through 8 for the sleeptimes
     # for k in {1..8}
-    for k in {1..4}
+    for k in {1..5}
     do
 	echo ""
 	echo ""

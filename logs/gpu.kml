@@ -13,25 +13,19 @@
       	   </xs:simpleType>  
      </xs:schema>	 
   </types>
-  <global name="swift#string#17005">
+  <global name="swift#string#17003">
     <vdl:new type="string" value="scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh scott3a.sh" />
   </global>
-  <global name="swift#string#17003">
+  <global name="swift#string#17001">
     <vdl:new type="string" value="1" />
   </global>
-  <global name="swift#string#17001">
-    <vdl:new type="string" value="-kernel_time=" />
-  </global>
-  <global name="swift#string#17002">
+  <global name="swift#string#17000">
     <vdl:new type="string" value="nkernels" />
   </global>
-  <global name="swift#string#17007">
+  <global name="swift#string#17005">
     <vdl:new type="string" value=".result" />
   </global>
-  <global name="swift#string#17000">
-    <vdl:new type="string" value="-nkernels=" />
-  </global>
-  <global name="swift#string#17004">
+  <global name="swift#string#17002">
     <vdl:new type="string" value="kernel_time" />
   </global>
   <element name="countwords" arguments="t,nk,time">
@@ -60,9 +54,7 @@
       <vdl:stagein var="{time}"/>
       <vdl:stageout var="{t}"/>
       <vdl:arguments>
-        <variable>swift#string#17000</variable>
         <variable>nk</variable>
-        <variable>swift#string#17001</variable>
         <variable>time</variable>
       </vdl:arguments>
       <vdl:stdout>
@@ -128,7 +120,7 @@
 		               <argument name="value">
 		                 <swiftscript:toint>
 		                  <swiftscript:arg>
-		                  <variable>swift#string#17002</variable><variable>swift#string#17003</variable> 
+		                  <variable>swift#string#17000</variable><variable>swift#string#17001</variable> 
 		                 </swiftscript:arg> 
 		                 </swiftscript:toint>
 		               </argument>
@@ -143,7 +135,7 @@
 		               <argument name="value">
 		                 <swiftscript:toint>
 		                  <swiftscript:arg>
-		                  <variable>swift#string#17004</variable><variable>swift#string#17003</variable> 
+		                  <variable>swift#string#17002</variable><variable>swift#string#17001</variable> 
 		                 </swiftscript:arg> 
 		                 </swiftscript:toint>
 		               </argument>
@@ -156,7 +148,7 @@
 		                 <variable>inputNames</variable>
 		               </argument>
 		               <argument name="value">
-		                 <variable>swift#string#17005</variable>
+		                 <variable>swift#string#17003</variable>
 		               </argument>
 		             </vdl:setfieldvalue>
 		            <partialCloseDataset var="{inputNames}" closeID="88002" />
@@ -172,19 +164,19 @@
 		              </set>	<log level="debug" message="FOREACH_IT_START line=15 thread={#thread}"/>
 		          <log level="debug"><string>SCOPE thread={#thread}</string></log>
 
-		              <set name="swift#mapper#17006">
-		                    <vdl:new type="string" dbgname="swift#mapper#17006" waitfor="" />
+		              <set name="swift#mapper#17004">
+		                    <vdl:new type="string" dbgname="swift#mapper#17004" waitfor="" />
 		              </set>
 		              <parameterlog>
 		              <string>intermediate</string>
-		              <string>swift#mapper#17006</string>
-		              <vdl:getdatasetprovenanceid var="{swift#mapper#17006}" />
+		              <string>swift#mapper#17004</string>
+		              <vdl:getdatasetprovenanceid var="{swift#mapper#17004}" />
 		              <string>{#thread}</string>
 		              </parameterlog>
 		              <set name="c">
 		                <vdl:new type="countfile" dbgname="c" waitfor="88003">
 		                  <vdl:mapping descriptor="single_file_mapper">
-		                    <vdl:parameter name="file"><variable>swift#mapper#17006</variable></vdl:parameter>
+		                    <vdl:parameter name="file"><variable>swift#mapper#17004</variable></vdl:parameter>
 		                  </vdl:mapping>
 		                </vdl:new>
 		              </set>
@@ -198,11 +190,11 @@
 		                    <sequential>
 		                         <vdl:setfieldvalue>
 		                           <argument name="var">
-		                             <variable>swift#mapper#17006</variable>
+		                             <variable>swift#mapper#17004</variable>
 		                           </argument>
 		                           <argument name="value">
 		                             <swiftscript:strcat>
-		                              <variable>i</variable><variable>swift#string#17007</variable> 
+		                              <variable>i</variable><variable>swift#string#17005</variable> 
 		                             </swiftscript:strcat>
 		                           </argument>
 		                         </vdl:setfieldvalue>
